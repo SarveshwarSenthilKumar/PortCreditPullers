@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCSS Pullers - Builders, Coders & Creators</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8a2be2;
+            --primary-light: #9d4edd;
+            --secondary: #ff6b6b;
+            --accent: #ffd166;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="%238a2be2" points="500,100 600,350 850,400 650,600 700,850 500,750 300,850 350,600 150,400 400,350"/></svg>');
+            background-size: 300px;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-300px, -300px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(138, 43, 226, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.6); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.1;
+            animation: floatElement 15s infinite ease-in-out;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 20%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            right: 30%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .image-3d {
+            width: 100%;
+            height: 400px;
+            background: var(--gradient);
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            transform: rotateY(-15deg) rotateX(10deg);
+            box-shadow: 30px 30px 60px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .image-3d:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .team-member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .member-role {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Activities Section */
+        .activities {
+            background-color: white;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Quote Section */
+        .quote {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .quote blockquote {
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quote blockquote::before,
+        .quote blockquote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .quote blockquote::before {
+            top: -30px;
+            left: -50px;
+        }
+
+        .quote blockquote::after {
+            bottom: -60px;
+            right: -50px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Motto Section */
+        .motto {
+            background-color: white;
+            text-align: center;
+        }
+
+        .motto-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .motto h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .motto-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 40px;
+        }
+
+        /* Connect Section */
+        .connect {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .connect-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .connect-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .connect-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+        }
+
+        .connect-link i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Extras Section */
+        .extras {
+            background-color: white;
+        }
+
+        .extras-table {
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .extras-table th {
+            background: var(--gradient);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2rem;
+        }
+
+        .extras-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .extras-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .extras-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-text {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* 3D Animation Elements */
+        .cube-container {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            perspective: 800px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 15s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient);
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .cube-face.front { transform: translateZ(100px); }
+        .cube-face.back { transform: translateZ(-100px) rotateY(180deg); }
+        .cube-face.right { transform: translateX(100px) rotateY(90deg); }
+        .cube-face.left { transform: translateX(-100px) rotateY(-90deg); }
+        .cube-face.top { transform: translateY(-100px) rotateX(90deg); }
+        .cube-face.bottom { transform: translateY(100px) rotateX(-90deg); }
+
+        @keyframes rotate {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-tractor"></i> PCSS Pullers
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>PCSS Pullers</h1>
+                <p>We're a small but mighty group of builders, coders, and creators who love making fun projects together. 💻✨</p>
+                <a href="#about" class="btn">Discover Our World</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hey there! We're <strong>PCSS Pullers</strong> — a student club that loves combining creativity and tech.</p>
+                    <p>We build things, solve problems, and make every project fun (and sometimes a little chaotic 😅).</p>
+                    <p>Our goal is to <strong>pull</strong> together cool ideas and make them happen — kind of like tractors, but with teamwork and imagination instead of engines.</p>
+                </div>
+                <div class="about-image">
+                    <div class="image-3d">
+                        <div>Creativity + Tech = Magic</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet the Team</h2>
+            </div>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="member-name">Catherine</h3>
+                    <div class="member-role">Creative Director</div>
+                    <p>Catherine is full of ideas and always adds something creative to every project. She's the kind of person who makes even the hardest task feel easy.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="member-name">Inaaya</h3>
+                    <div class="member-role">Design Lead</div>
+                    <p>Inaaya keeps everything running smoothly. She's all about design, organization, and making our work look amazing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Do</h2>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Building Games & Programs</h3>
+                    <p>We create fun games and useful programs that challenge our coding skills.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Design & Graphics</h3>
+                    <p>Making our projects visually appealing with creative designs.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Learning Together</h3>
+                    <p>Helping each other learn new skills and improve our abilities.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Competitions</h3>
+                    <p>Participating in school events and showcasing our talents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote">
+        <div class="container">
+            <blockquote>
+                "Teamwork makes the dream work — especially when we add snacks." 🍪
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>A Peek Into Our World</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Team Collaboration">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Coding Session">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Project Presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Creative Design">
+                </div>
+            </div>
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face front">PCSS</div>
+                    <div class="cube-face back">TEAM</div>
+                    <div class="cube-face right">FUN</div>
+                    <div class="cube-face left">CODE</div>
+                    <div class="cube-face top">PULL</div>
+                    <div class="cube-face bottom">CREATE</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motto Section -->
+    <section class="motto">
+        <div class="container">
+            <div class="motto-content">
+                <h3>Our Motto</h3>
+                <div class="motto-text">
+                    "Pull together. Build together. Win together."
+                </div>
+                <p>That's what PCSS Pullers is all about — effort, teamwork, and a little bit of chaos (the good kind).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect" class="connect">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Us</h2>
+            </div>
+            <div class="connect-links">
+                <a href="https://github.com" class="connect-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.markdownguide.org/" class="connect-link" target="_blank">
+                    <i class="fas fa-book"></i> Markdown Guide
+                </a>
+                <a href="#" class="connect-link">
+                    <i class="fas fa-school"></i> Find Us After School
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extras Section -->
+    <section class="extras">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fun Extras</h2>
+            </div>
+            <table class="extras-table">
+                <tr>
+                    <th>Favorite Thing</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Music</td>
+                    <td>Keeps us going while we code 🎧</td>
+                </tr>
+                <tr>
+                    <td>Snacks</td>
+                    <td>The fuel behind every good project 🍫</td>
+                </tr>
+                <tr>
+                    <td>Laughter</td>
+                    <td>Mandatory for every meeting 😆</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-tractor"></i> PCSS Pullers
+                </div>
+                <p class="footer-text">Made with 💖 by the PCSS Pullers</p>
+                <p class="copyright">© 2025 — Creative minds. Real teamwork. No boring stuff.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
