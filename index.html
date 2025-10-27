@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCSS Pullers - Builders, Coders & Creators</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #8a2be2;
-            --primary-light: #9d4edd;
-            --secondary: #ff6b6b;
-            --accent: #ffd166;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --secondary: #2c3e50;
+            --accent: #f1c40f;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #ecf0f1;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+            --border: 2px solid rgba(230, 126, 34, 0.3);
         }
 
         * {
@@ -27,10 +28,11 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--darker);
+            color: var(--light);
             overflow-x: hidden;
             line-height: 1.6;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
         }
 
         .container {
@@ -52,16 +54,36 @@
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 35px;
             background: var(--gradient);
             color: white;
-            border-radius: 50px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: none;
+            border: 2px solid var(--primary);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
         }
 
         .btn:hover {
@@ -76,9 +98,10 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(18, 18, 18, 0.98);
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: var(--border);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
             transition: var(--transition);
         }
 
@@ -96,10 +119,13 @@
         .logo {
             display: flex;
             align-items: center;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
+            font-family: 'Arial Black', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
             color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .logo i {
@@ -118,10 +144,14 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
+            color: var(--light);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
             transition: var(--transition);
             position: relative;
+            padding: 5px 0;
         }
 
         .nav-links a:hover {
@@ -131,12 +161,13 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--gradient);
+            height: 3px;
+            background: var(--primary);
             transition: var(--transition);
+            box-shadow: 0 0 10px var(--primary);
         }
 
         .nav-links a:hover::after {
@@ -150,7 +181,11 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1627855437693-dcc7b0c4b1c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-bottom: var(--border);
         }
 
         .hero::before {
@@ -177,13 +212,26 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: textGlow 3s ease-in-out infinite alternate;
+            color: var(--light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
         }
 
         @keyframes textGlow {
@@ -192,9 +240,12 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
-            color: #555;
+            color: #ecf0f1;
+            max-width: 700px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
         .hero-image {
