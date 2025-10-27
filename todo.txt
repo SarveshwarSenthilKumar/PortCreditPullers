@@ -1,0 +1,3 @@
+Change favicon icon to tractor icon
+Change white text color to more readable w black
+Make a dark mode and light mode switch
