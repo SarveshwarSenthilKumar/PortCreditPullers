@@ -1,3 +1,6 @@
 Change favicon icon to tractor icon
 Change white text color to more readable w black
+Add animations and make it more tuff
 Make a dark mode and light mode switch
+Add Mr. A and others as collaborators
+Change domain to tractor pull
