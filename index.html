@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCSS Pullers - Official Site</title>
+    <title>PCSS Pullers - Official Tractor Pull Team</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #8B4513;
-            --secondary: #228B22;
+            --secondary: #8B0000;
             --accent: #FFD700;
             --text: #333333;
             --bg: #f8f9fa;
@@ -16,17 +16,25 @@
             --header-bg: #ffffff;
             --shadow: rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
+            --mud: #8B7355;
+            --dirt: #A0522D;
+            --rust: #B7410E;
+            --steel: #708090;
         }
 
         .dark-mode {
             --primary: #CD853F;
-            --secondary: #32CD32;
+            --secondary: #DC143C;
             --accent: #FFD700;
             --text: #f0f0f0;
             --bg: #121212;
             --card-bg: #1e1e1e;
             --header-bg: #1a1a1a;
             --shadow: rgba(0, 0, 0, 0.3);
+            --mud: #5D4037;
+            --dirt: #795548;
+            --rust: #8B4513;
+            --steel: #546E7A;
         }
 
         * {
@@ -42,6 +50,7 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0idmFyKC0tY2FyZC1iZykiLz48cGF0aCBkPSJNMCAwTDEwIDEwTDAgMjBaIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
         }
 
         header {
@@ -50,6 +59,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 3px solid var(--rust);
         }
 
         .container {
@@ -73,11 +83,13 @@
             font-weight: bold;
             font-size: 1.5rem;
             color: var(--primary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .logo i {
             color: var(--secondary);
             animation: spin 10s linear infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
         }
 
         @keyframes spin {
@@ -93,9 +105,11 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text);
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
             padding: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links a:after {
@@ -104,8 +118,8 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--primary);
+            height: 3px;
+            background-color: var(--rust);
             transition: width 0.3s ease;
         }
 
@@ -122,15 +136,17 @@
             padding: 5px 10px;
             border-radius: 50%;
             background-color: var(--card-bg);
+            border: 1px solid var(--rust);
         }
 
         .hero {
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dirt) 50%, var(--rust) 100%);
             color: white;
             position: relative;
             overflow: hidden;
+            border-bottom: 5px solid var(--mud);
         }
 
         .hero:before {
@@ -140,7 +156,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
         }
 
         .hero-content {
@@ -154,12 +170,16 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 900;
+            letter-spacing: 2px;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .tractor-icon {
@@ -167,6 +187,7 @@
             margin-bottom: 20px;
             animation: bounce 2s infinite;
             display: inline-block;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         @keyframes bounce {
@@ -196,11 +217,15 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
             animation: fadeInUp 1s ease 0.4s both;
+            border: 2px solid #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background-color: #FFC400;
         }
 
         section {
@@ -211,6 +236,11 @@
             text-align: center;
             margin-bottom: 50px;
             position: relative;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            color: var(--primary);
         }
 
         .section-title:after {
@@ -219,9 +249,10 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
+            width: 100px;
+            height: 4px;
+            background-color: var(--rust);
+            border-radius: 2px;
         }
 
         .about-content {
@@ -232,17 +263,25 @@
 
         .about-text {
             flex: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
         }
 
         .about-image {
             flex: 1;
             text-align: center;
+            position: relative;
         }
 
         .about-image i {
             font-size: 10rem;
             color: var(--primary);
             opacity: 0.8;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
         }
 
         .team-grid {
@@ -259,6 +298,19 @@
             text-align: center;
             box-shadow: 0 5px 15px var(--shadow);
             transition: var(--transition);
+            border: 2px solid var(--rust);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
         }
 
         .team-member:hover {
@@ -270,12 +322,22 @@
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 20px;
+            background-color: var(--bg);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 2px solid var(--rust);
         }
 
         .member-name {
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--primary);
+            font-weight: 700;
         }
 
         .activities {
@@ -284,6 +346,18 @@
             padding: 40px;
             margin-top: 30px;
             box-shadow: 0 5px 15px var(--shadow);
+            border: 2px solid var(--rust);
+            position: relative;
+        }
+
+        .activities:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
         }
 
         .activity-list {
@@ -300,6 +374,13 @@
             padding: 15px;
             background-color: var(--bg);
             border-radius: 8px;
+            border-left: 4px solid var(--rust);
+            transition: var(--transition);
+        }
+
+        .activity-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px var(--shadow);
         }
 
         .activity-item i {
@@ -324,6 +405,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid var(--rust);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px var(--shadow);
         }
 
         .gallery-item i {
@@ -342,6 +431,8 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px var(--shadow);
             position: relative;
+            border: 2px solid var(--rust);
+            font-weight: 700;
         }
 
         .motto:before, .motto:after {
@@ -380,11 +471,18 @@
             color: var(--text);
             box-shadow: 0 5px 15px var(--shadow);
             transition: var(--transition);
+            border: 2px solid var(--rust);
         }
 
         .contact-link:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px var(--shadow);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .contact-link:hover i {
+            color: var(--accent);
         }
 
         .contact-link i {
@@ -400,6 +498,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px var(--shadow);
+            border: 2px solid var(--rust);
         }
 
         .extras-table th, .extras-table td {
@@ -411,10 +510,17 @@
         .extras-table th {
             background-color: var(--primary);
             color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .extras-table tr:last-child td {
             border-bottom: none;
+        }
+
+        .extras-table tr:hover {
+            background-color: var(--bg);
         }
 
         footer {
@@ -423,11 +529,70 @@
             text-align: center;
             margin-top: 80px;
             box-shadow: 0 -4px 12px var(--shadow);
+            border-top: 3px solid var(--rust);
         }
 
         .footer-content {
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        /* Tractor animation */
+        .tractor-track {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-color: var(--mud);
+            overflow: hidden;
+        }
+
+        .tractor-animation {
+            position: absolute;
+            bottom: 10px;
+            left: -100px;
+            font-size: 2rem;
+            color: var(--steel);
+            animation: tractorMove 15s linear infinite;
+        }
+
+        @keyframes tractorMove {
+            0% { left: -100px; }
+            100% { left: 100%; }
+        }
+
+        /* Interactive elements */
+        .interactive-tractor {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .mud-splash {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--mud) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -446,6 +611,10 @@
             .contact-links {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
@@ -473,13 +642,18 @@
     </header>
 
     <section class="hero">
+        <div class="tractor-track">
+            <div class="tractor-animation">
+                <i class="fas fa-tractor"></i>
+            </div>
+        </div>
         <div class="container">
             <div class="hero-content">
                 <div class="tractor-icon">
                     <i class="fas fa-tractor"></i>
                 </div>
                 <h1>PCSS PULLERS</h1>
-                <p>We're a small but mighty group of builders, coders, and creators who love making fun projects together.</p>
+                <p>We're a rugged team of builders, coders, and creators who love making powerful projects together.</p>
                 <a href="#about" class="btn">Explore Our Work</a>
             </div>
         </div>
@@ -490,9 +664,9 @@
             <h2 class="section-title">About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Hey there! We're <strong>PCSS Pullers</strong> — a student club that loves combining creativity and tech.</p>
-                    <p>We build things, solve problems, and make every project fun (and sometimes a little chaotic 😅).</p>
-                    <p>Our goal is to <strong>pull</strong> together cool ideas and make them happen — kind of like tractors, but with teamwork and imagination instead of engines.</p>
+                    <p>Hey there! We're <strong>PCSS Pullers</strong> — a student club that loves combining creativity and tech with raw power.</p>
+                    <p>We build things, solve problems, and make every project tough and resilient (and sometimes a little chaotic 😅).</p>
+                    <p>Our goal is to <strong>pull</strong> together powerful ideas and make them happen — just like tractors pulling heavy loads with raw power and determination.</p>
                 </div>
                 <div class="about-image">
                     <i class="fas fa-users"></i>
@@ -510,14 +684,14 @@
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3 class="member-name">Catherine</h3>
-                    <p>Catherine is full of ideas and always adds something creative to every project. She's the kind of person who makes even the hardest task feel easy.</p>
+                    <p>Catherine is full of powerful ideas and always adds something creative to every project. She's the kind of person who makes even the hardest task feel achievable.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3 class="member-name">Inaaya</h3>
-                    <p>Inaaya keeps everything running smoothly. She's all about design, organization, and making our work look amazing.</p>
+                    <p>Inaaya keeps everything running smoothly. She's all about design, organization, and making our work look powerful and amazing.</p>
                 </div>
             </div>
         </div>
@@ -527,17 +701,17 @@
         <div class="container">
             <h2 class="section-title">What We Do</h2>
             <div class="activities">
-                <p>"Teamwork makes the dream work — especially when we add snacks." 🍪</p>
-                <p>We work on fun tech projects, coding challenges, and small builds. Our club isn't just about robots or code — it's about creating, learning, and helping each other improve.</p>
+                <p>"Teamwork makes the dream work — especially when we add power and determination." 🚜</p>
+                <p>We work on powerful tech projects, coding challenges, and rugged builds. Our club isn't just about robots or code — it's about creating, learning, and helping each other improve with strength and resilience.</p>
                 
                 <div class="activity-list">
                     <div class="activity-item">
                         <i class="fas fa-laptop-code"></i>
-                        <span>Building small games and programs</span>
+                        <span>Building powerful games and programs</span>
                     </div>
                     <div class="activity-item">
                         <i class="fas fa-paint-brush"></i>
-                        <span>Designing fun graphics or presentations</span>
+                        <span>Designing rugged graphics or presentations</span>
                     </div>
                     <div class="activity-item">
                         <i class="fas fa-hands-helping"></i>
@@ -545,7 +719,7 @@
                     </div>
                     <div class="activity-item">
                         <i class="fas fa-trophy"></i>
-                        <span>Competing in school events</span>
+                        <span>Competing in school events with power</span>
                     </div>
                 </div>
             </div>
@@ -578,7 +752,7 @@
             <div class="motto">
                 "Pull together. Build together. Win together."
             </div>
-            <p style="text-align: center;">That's what PCSS Pullers is all about — effort, teamwork, and a little bit of chaos (the good kind).</p>
+            <p style="text-align: center;">That's what PCSS Pullers is all about — power, teamwork, and a little bit of rugged chaos (the good kind).</p>
         </div>
     </section>
 
@@ -615,11 +789,11 @@
                 <tbody>
                     <tr>
                         <td>Music</td>
-                        <td>Keeps us going while we code 🎧</td>
+                        <td>Keeps us going while we code with power 🎧</td>
                     </tr>
                     <tr>
                         <td>Snacks</td>
-                        <td>The fuel behind every good project 🍫</td>
+                        <td>The fuel behind every powerful project 🍫</td>
                     </tr>
                     <tr>
                         <td>Laughter</td>
@@ -638,6 +812,10 @@
             </div>
         </div>
     </footer>
+
+    <div class="interactive-tractor" id="interactiveTractor">
+        <i class="fas fa-tractor"></i>
+    </div>
 
     <script>
         // Theme toggle functionality
@@ -695,6 +873,109 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
+        });
+
+        // Interactive tractor functionality
+        const interactiveTractor = document.getElementById('interactiveTractor');
+        let tractorX = window.innerWidth - 100;
+        let tractorY = window.innerHeight - 100;
+        
+        interactiveTractor.style.left = tractorX + 'px';
+        interactiveTractor.style.top = tractorY + 'px';
+        
+        let isDragging = false;
+        let offsetX, offsetY;
+        
+        interactiveTractor.addEventListener('mousedown', startDrag);
+        interactiveTractor.addEventListener('touchstart', startDrag);
+        
+        function startDrag(e) {
+            isDragging = true;
+            
+            if (e.type === 'mousedown') {
+                offsetX = e.clientX - interactiveTractor.getBoundingClientRect().left;
+                offsetY = e.clientY - interactiveTractor.getBoundingClientRect().top;
+                document.addEventListener('mousemove', drag);
+                document.addEventListener('mouseup', stopDrag);
+            } else {
+                const touch = e.touches[0];
+                offsetX = touch.clientX - interactiveTractor.getBoundingClientRect().left;
+                offsetY = touch.clientY - interactiveTractor.getBoundingClientRect().top;
+                document.addEventListener('touchmove', drag);
+                document.addEventListener('touchend', stopDrag);
+            }
+            
+            e.preventDefault();
+        }
+        
+        function drag(e) {
+            if (!isDragging) return;
+            
+            let clientX, clientY;
+            
+            if (e.type === 'mousemove') {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            } else {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+            
+            tractorX = clientX - offsetX;
+            tractorY = clientY - offsetY;
+            
+            // Keep within viewport
+            tractorX = Math.max(0, Math.min(tractorX, window.innerWidth - interactiveTractor.offsetWidth));
+            tractorY = Math.max(0, Math.min(tractorY, window.innerHeight - interactiveTractor.offsetHeight));
+            
+            interactiveTractor.style.left = tractorX + 'px';
+            interactiveTractor.style.top = tractorY + 'px';
+            
+            // Create mud splash effect
+            createMudSplash(tractorX + interactiveTractor.offsetWidth/2, tractorY + interactiveTractor.offsetHeight);
+        }
+        
+        function stopDrag() {
+            isDragging = false;
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('mouseup', stopDrag);
+            document.removeEventListener('touchmove', drag);
+            document.removeEventListener('touchend', stopDrag);
+        }
+        
+        function createMudSplash(x, y) {
+            const splash = document.createElement('div');
+            splash.className = 'mud-splash';
+            splash.style.left = x + 'px';
+            splash.style.top = y + 'px';
+            document.body.appendChild(splash);
+            
+            // Animate the splash
+            splash.animate([
+                { opacity: 0.8, transform: 'scale(0)' },
+                { opacity: 0, transform: 'scale(1)' }
+            ], {
+                duration: 500,
+                easing: 'ease-out'
+            });
+            
+            // Remove after animation
+            setTimeout(() => {
+                document.body.removeChild(splash);
+            }, 500);
+        }
+
+        // Add tractor sound on click
+        interactiveTractor.addEventListener('click', () => {
+            // In a real implementation, you would play a sound here
+            // For this example, we'll just log to console
+            console.log("Vroom vroom! Tractor sound playing!");
+            
+            // Visual feedback
+            interactiveTractor.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                interactiveTractor.style.transform = 'scale(1)';
+            }, 200);
         });
     </script>
 </body>
