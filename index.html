@@ -8,6 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
 
         :root {
+            /* Light Theme */
             --primary: #8B1A1A;
             --secondary: #333333;
             --accent: #FF8C00;
@@ -16,22 +17,27 @@
             --card-bg: #FFFFFF;
             --header-bg: #1A1A1A;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
             --mud: #5C4033;
             --dirt: #8B4513;
             --rust: #B7410E;
             --steel: #71797E;
-            --chrome: #E5E4E2;
-            --accent: #FFD700;
-            --text: #f0f0f0;
+        }
+        .dark-mode {
+            --primary: #FF4D4D;
+            --secondary: #CCCCCC;
+            --accent: #FFA500;
+            --text: #F0F0F0;
             --bg: #121212;
-            --card-bg: #1e1e1e;
-            --header-bg: #1a1a1a;
-            --shadow: rgba(0, 0, 0, 0.3);
-            --mud: #5D4037;
+            --card-bg: #1E1E1E;
+            --header-bg: #0A0A0A;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --mud: #8B5A2B;
             --dirt: #795548;
             --rust: #8B4513;
             --steel: #546E7A;
+            --chrome: #FFFFFF;
+            --text-inverse: #2C2C2C;
+            --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -42,7 +48,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -126,14 +132,24 @@
 
         .theme-toggle {
             background: none;
-            border: none;
-            color: var(--text);
+            border: 2px solid var(--accent);
+            color: var(--accent);
             font-size: 1.2rem;
             cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 50%;
+            padding: 8px 12px;
+            border-radius: 30px;
             background-color: var(--card-bg);
-            border: 1px solid var(--rust);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .hero {
@@ -158,7 +174,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+        }
+
+        .dark-mode .hero:before {
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.8) 0%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.8) 100%
+            );
         }
 
         .hero-content {
