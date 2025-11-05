@@ -568,32 +568,37 @@
         .extras-table tr:last-child td {
             border-bottom: none;
         }
-
         .extras-table tr:hover {
             background-color: var(--bg);
         }
 
         footer {
-            background-color: var(--header-bg);
-            padding: 40px 0;
+            background-color: var(--card-bg);
+            padding: 50px 0 30px;
             text-align: center;
+            color: var(--text);
             margin-top: 80px;
-            box-shadow: 0 -4px 12px var(--shadow);
-            border-top: 3px solid var(--rust);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .dark-mode footer {
+            background-color: var(--header-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .footer-content {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .footer-content p {
-            margin-bottom: 10px;
-        }
-
-        /* Tractor animation */
-        .tractor-track {
-            position: absolute;
+            margin: 0 0 15px;
+            font-size: 0.95rem;
+            color: var(--text);
+            opacity: 0.9;
             bottom: 0;
             left: 0;
             width: 100%;
