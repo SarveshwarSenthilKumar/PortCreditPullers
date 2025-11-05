@@ -39,6 +39,27 @@
             --text-inverse: #2C2C2C;
             --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
+        
+        /* Ensure all text elements inherit the correct color in dark mode */
+        .dark-mode p,
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode h3,
+        .dark-mode h4,
+        .dark-mode h5,
+        .dark-mode h6,
+        .dark-mode span,
+        .dark-mode div,
+        .dark-mode li,
+        .dark-mode td,
+        .dark-mode th,
+        .dark-mode .section-title,
+        .dark-mode .about-text,
+        .dark-mode .team-member,
+        .dark-mode .activity-item,
+        .dark-mode .motto {
+            color: var(--text) !important;
+        }
 
         * {
             padding: 0;
@@ -599,12 +620,11 @@
             font-size: 0.95rem;
             color: var(--text);
             opacity: 0.9;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background-color: var(--mud);
-            overflow: hidden;
+        }
+        
+        .footer-content p:last-child {
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
 
         .tractor-animation {
