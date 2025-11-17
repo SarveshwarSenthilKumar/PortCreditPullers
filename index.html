@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCSS Pullers - Official Tractor Pull Team</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚜</text></svg>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
 
@@ -61,6 +62,17 @@
             color: var(--text) !important;
         }
 
+        /* Favicon animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .favicon-animate {
+            animation: bounce 2s infinite;
+            display: inline-block;
+        }
+
         * {
             padding: 0;
             box-sizing: border-box;
@@ -98,6 +110,9 @@
             align-items: center;
             gap: 10px;
             font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            padding: 5px;
             font-size: 1.5rem;
             color: var(--primary);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
@@ -695,10 +710,12 @@
     </style>
 </head>
 <body>
+    <div id="mud-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;"></div>
     <header>
         <div class="container">
             <div class="nav-container">
-                <div class="logo">
+                <div class="logo" id="tractor-logo">
+                    <span class="favicon-animate" style="font-size: 1.5em;">🚜</span>
                     <i class="fas fa-tractor"></i>
                     <span>PCSS PULLERS</span>
                 </div>
@@ -893,6 +910,61 @@
     </div>
 
     <script>
+        // Tractor logo animation
+        const tractorLogo = document.getElementById('tractor-logo');
+        const mudContainer = document.getElementById('mud-container');
+        
+        // Tractor animation on hover
+        tractorLogo.addEventListener('mouseenter', () => {
+            tractorLogo.style.transform = 'scale(1.1) rotate(-5deg)';
+            tractorLogo.style.transition = 'transform 0.3s ease-in-out';
+        });
+        
+        tractorLogo.addEventListener('mouseleave', () => {
+            tractorLogo.style.transform = 'scale(1) rotate(0)';
+        });
+        
+        // Mud splash effect
+        function createMudSplash(x, y) {
+            const mud = document.createElement('div');
+            mud.style.position = 'absolute';
+            mud.style.left = `${x}px`;
+            mud.style.top = `${y}px`;
+            mud.style.width = '20px';
+            mud.style.height = '20px';
+            mud.style.background = 'radial-gradient(circle, var(--mud) 0%, var(--dirt) 100%)';
+            mud.style.borderRadius = '50%';
+            mud.style.pointerEvents = 'none';
+            mud.style.transform = 'scale(0)';
+            mud.style.animation = 'splash 1s forwards';
+            mudContainer.appendChild(mud);
+            
+            // Remove mud after animation
+            setTimeout(() => {
+                mud.style.opacity = '0';
+                mud.style.transition = 'opacity 1s';
+                setTimeout(() => mud.remove(), 1000);
+            }, 1000);
+        }
+        
+        // Add mud splash effect on click
+        document.addEventListener('click', (e) => {
+            if (Math.random() > 0.8) { // 20% chance to create mud splash
+                createMudSplash(e.clientX, e.clientY);
+            }
+        });
+        
+        // Add keyframes for mud splash
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes splash {
+                0% { transform: scale(0); opacity: 1; }
+                50% { transform: scale(2); opacity: 0.8; }
+                100% { transform: scale(3); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
         // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
